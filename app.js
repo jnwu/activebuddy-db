@@ -7,15 +7,14 @@ var User = require('./app/models/user');
 var express = require('express');
 var app = express();
 var exports = module.exports = app;
-var env = app.get('env');
 var environment = require('./config/environment');
 var routes = require('./config/routes')(app);
 var database = require('./config/database');
 
-if (env === 'development') {
+if (process.env.mode === 'staging') {
     database = database.staging;
     app.use(express.errorHandler());
-} else if (env === 'production') {
+} else if (process.env.mode === 'production') {
     database = database.production;
 }
 
