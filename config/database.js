@@ -1,3 +1,5 @@
+/*jslint white: true */
+
 module.exports = {
   staging: {
     host: 'ds057224.mongolab.com',

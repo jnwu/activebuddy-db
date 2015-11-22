@@ -1,3 +1,5 @@
+/*jslint white: true */
+
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var autoIncrement = require('mongoose-auto-increment');

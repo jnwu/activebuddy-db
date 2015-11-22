@@ -1,12 +1,13 @@
+/*jslint white: true */
+
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var autoIncrement = require('mongoose-auto-increment');
 
 var ReviewSchema = new Schema({
-  ofUserId: Schema.Types.ObjectId,
-  email: {type: String, required: true, unique: true},
-  password: {type: String, required: true},
-  reviews: Array,
+  ofUserEmail: {type: String, required: true},
+  ofReviewUserEmail: {type: String, required: true},
+  content: String,
   created: {type: Date, default: Date.now}
 });
 

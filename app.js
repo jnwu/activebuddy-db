@@ -1,3 +1,5 @@
+/*jslint white: true */
+
 process.env.mode = 'staging';
 
 var database, dbString, serverOptions;

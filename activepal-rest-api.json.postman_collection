@@ -3,7 +3,9 @@
 	"name": "activepal-rest-api",
 	"description": "",
 	"order": [
-		"f0480c0d-fdb1-6b5e-1c2f-13bcea89424b"
+		"f0480c0d-fdb1-6b5e-1c2f-13bcea89424b",
+		"daeb750c-cf62-084f-6500-6849e1278572",
+		"2b5a5abc-70b5-04bc-8fca-06199c4d38c3"
 	],
 	"folders": [],
 	"timestamp": 1448151114744,
@@ -11,6 +13,46 @@
 	"remoteLink": "",
 	"public": false,
 	"requests": [
+		{
+			"id": "2b5a5abc-70b5-04bc-8fca-06199c4d38c3",
+			"headers": "",
+			"url": "localhost:3000/activity?location=foo&activity=foo",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "GET",
+			"collectionId": "e6161e38-8b5d-5846-386b-9843ce4f69d5",
+			"data": [],
+			"dataMode": "params",
+			"name": "localhost:3000/activity?location=foo&activity=foo",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1448157098392,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "daeb750c-cf62-084f-6500-6849e1278572",
+			"headers": "Content-Type: application/json\n",
+			"url": "localhost:3000/activity/",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1448157089226,
+			"name": "localhost:3000/activity/",
+			"description": "",
+			"collectionId": "e6161e38-8b5d-5846-386b-9843ce4f69d5",
+			"responses": [],
+			"rawModeData": "{\n    \"ofUserEmail\": \"foo@a.com\",\n    \"location\": \"foo\",\n    \"activity\": \"foo\",\n    \"ofUserEmails\": [\"a\", \"b\"]\n}"
+		},
 		{
 			"id": "f0480c0d-fdb1-6b5e-1c2f-13bcea89424b",
 			"headers": "Content-Type: application/json\n",
@@ -24,12 +66,12 @@
 			"tests": "",
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1448151390944,
+			"time": 1448156509194,
 			"name": "localhost:3000/user",
 			"description": "",
 			"collectionId": "e6161e38-8b5d-5846-386b-9843ce4f69d5",
 			"responses": [],
-			"rawModeData": "{\n    \"email\": \"222foo@a.com\",\n    \"password\": \"foo\"\n}"
+			"rawModeData": "{\n    \"email\": \"foo@a.com\",\n    \"password\": \"foo\"\n}"
 		}
 	]
 }
