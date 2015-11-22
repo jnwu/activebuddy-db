@@ -3,7 +3,6 @@ var express = require('express');
 var app = require('../app');
 var cors = require('cors');
 
-process.env.mode = 'staging';
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, '/../app/views'));
 app.set('view engine', 'ejs');

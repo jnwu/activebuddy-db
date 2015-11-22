@@ -1,0 +1,35 @@
+{
+	"id": "e6161e38-8b5d-5846-386b-9843ce4f69d5",
+	"name": "activepal-rest-api",
+	"description": "",
+	"order": [
+		"f0480c0d-fdb1-6b5e-1c2f-13bcea89424b"
+	],
+	"folders": [],
+	"timestamp": 1448151114744,
+	"owner": "125567",
+	"remoteLink": "",
+	"public": false,
+	"requests": [
+		{
+			"id": "f0480c0d-fdb1-6b5e-1c2f-13bcea89424b",
+			"headers": "Content-Type: application/json\n",
+			"url": "localhost:3000/user",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1448151390944,
+			"name": "localhost:3000/user",
+			"description": "",
+			"collectionId": "e6161e38-8b5d-5846-386b-9843ce4f69d5",
+			"responses": [],
+			"rawModeData": "{\n    \"email\": \"222foo@a.com\",\n    \"password\": \"foo\"\n}"
+		}
+	]
+}

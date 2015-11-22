@@ -1,45 +1,44 @@
-/*jshint unused: true, node: true */
+process.env.mode = 'staging';
 
-var http = require('http');
+var database, dbString, serverOptions;
 var mongoose = require('mongoose');
-var User = require('./app/models/user');
-
-var express = require('express');
-var app = express();
-var exports = module.exports = app;
-var environment = require('./config/environment');
-var routes = require('./config/routes')(app);
-var database = require('./config/database');
-
-if (process.env.mode === 'staging') {
-    database = database.staging;
-    app.use(express.errorHandler());
-} else if (process.env.mode === 'production') {
-    database = database.production;
-}
-
-// database connect
 var connect = function () {
-    var options = {server: {socketOptions: {keepAlive: 1}}};
-    mongoose.connect('mongodb://'
+  database = require('./config/database');
+
+  if (process.env.mode === 'staging') {
+    database = database.staging;
+  } else if (process.env.mode === 'production') {
+    database = database.production;
+  }
+
+  serverOptions = {server: {socketOptions: {keepAlive: 1}}};
+  dbString = 'mongodb://'
             + database.username + ':'
             + database.password + '@'
             + database.host + ':'
             + database.port + '/'
-            + database.database, options);
+            + database.database;
+  console.log(dbString);
+  mongoose.connect(dbString, serverOptions);
 };
 
 var db = mongoose.connection;
-db.on('error', function (err) {
-    console.log(err);
-});
-
-db.on('disconnected', function () {
-    connect();
-});
-
+db.on('error', console.error);
+db.on('disconnected', connect);
 connect();
 
-http.createServer(app).listen(app.get('port'), function () {
-  console.log('Express server listening on port ' + app.get('port'));
-});
+require('mongoose-auto-increment').initialize(db);
+require('./app/models/user');
+require('./app/models/activity');
+require('./app/models/review');
+
+var http = require('http');
+var express = require('express');
+var app = express();
+
+module.exports = app;
+var exports = module.exports;
+var environment = require('./config/environment');
+var routes = require('./config/routes')(app);
+
+http.createServer(app).listen(app.get('port'));
