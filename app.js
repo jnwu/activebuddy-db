@@ -1,6 +1,6 @@
 /*jslint white: true */
 
-process.env.mode = 'staging';
+process.env.mode = 'production';
 
 var database, dbString, serverOptions;
 var mongoose = require('mongoose');
