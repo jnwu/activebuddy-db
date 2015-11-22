@@ -9,7 +9,8 @@ var ActivitySchema = new Schema({
   activity: {type: String, required: true},
   location: {type: String, required: true},
   ofUserEmails: [String],
-  created: {type: Date, default: Date.now}
+  created: {type: Date, default: Date.now},
+  updated: {type: Date, default: Date.now}
 });
 
 ActivitySchema.methods = {};

@@ -7,7 +7,8 @@ var autoIncrement = require('mongoose-auto-increment');
 var UserSchema = new Schema({
   email: {type: String, required: true, unique: true},
   password: {type: String, required: true},
-  reviews: Array,
+  reviews: [String],
+  sessionToken: String,
   created: {type: Date, default: Date.now}
 });
 
