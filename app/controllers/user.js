@@ -4,7 +4,13 @@ var mongoose = require('mongoose');
 var User = mongoose.model('User');
 
 exports.login = function (req, res) {
-  User.find({email: req.body.email}, function (err, result) {
+  var email = req.body.email;
+
+  if (req.cookies && req.cookies.email && email === null) {
+    email = req.cookies.email;
+  }
+
+  User.find({email: email}, function (err, result) {
     if (err) {
       return res.send(500);
     }
@@ -29,7 +35,8 @@ exports.login = function (req, res) {
         return res.send(500);
       }
 
-      res.json({status: 'SUCCESS', response: {id: u._id}});
+      res.cookie('email', u.email, {maxAge: 1000 * 86400});
+      res.json({status: 'SUCCESS'});
     });
   });
 };
