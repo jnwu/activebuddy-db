@@ -2,6 +2,7 @@
 
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
+var Mandrill = require('../helpers/mandrill_helper');
 
 exports.login = function (req, res) {
   var email = req.body.email;
@@ -29,6 +30,7 @@ exports.login = function (req, res) {
         return res.send(500);
       }
 
+      Mandrill.send(u.email);
       res.json({status: 'SUCCESS'});
     });
   });
